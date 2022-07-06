@@ -1,3 +1,3 @@
 # vanilla_jupyter_ide
 
-test
+Plain jupyter IDE, pip installed.
