@@ -1,0 +1,24 @@
+version: '3.8'
+  
+services:
+
+  ######## ide services ########
+  ide_app:
+   image: jermwatt/vanilla_jupyter_ide 
+   container_name: vanilla_jupyter_ide
+   ports:
+    - 8888:8888
+   working_dir: /usr/src
+   volumes:
+    - ../apps:/usr/src/apps
+    - .:/usr/src/compose_files
+   command: >
+      sh -c "jupyter notebook --port=8888 --ip=0.0.0.0 --allow-root --NotebookApp.token=''"
+   restart: "no"
+   networks:
+    ide_network:
+     ipv4_address: ${JUPYTER_IP}
+
+networks:
+  ide_network:
+    external: true
