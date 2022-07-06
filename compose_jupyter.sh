@@ -28,10 +28,13 @@ echo '---- GENERATING SERVICE IPs FOR COMPOSE FILES ----'
 rm .env
 touch .env
 
-#PUBLIC_IP=$(curl -s -4 icanhazip.com)
+# cat jupyter ide to env
 JUPYTER_IP=10.2.0.2
 echo JUPYTER_IP=${JUPYTER_IP} > .env
 
+# cat machine and container mount points
+MACHINE_MOUNT_POINT="./"
+CONTAINER_MOUNT_POINT="/usr/src/app"
 
 echo '---- STARTING SERVICES ----'
 docker-compose -f docker-compose-vanilla-jupyter.yml up -d

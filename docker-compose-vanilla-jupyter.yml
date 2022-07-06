@@ -10,8 +10,7 @@ services:
     - 8888:8888
    working_dir: /usr/src
    volumes:
-    - ../apps:/usr/src/apps
-    - .:/usr/src/compose_files
+    - ${MACHINE_MOUNT_POINT}:${CONTAINER_MOUNT_POINT}
    command: >
       sh -c "jupyter notebook --port=8888 --ip=0.0.0.0 --allow-root --NotebookApp.token=''"
    restart: "no"
