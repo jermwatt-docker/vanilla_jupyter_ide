@@ -30,14 +30,14 @@ touch .env
 
 # cat jupyter ide to env
 JUPYTER_IP=10.2.0.2
-echo JUPYTER_IP=${JUPYTER_IP} > .env
+echo JUPYTER_IP=${JUPYTER_IP} >> .env
 
 # cat machine and container mount points
 MACHINE_MOUNT_POINT="./"
-echo MACHINE_MOUNT_POINT=${MACHINE_MOUNT_POINT} > .env
+echo MACHINE_MOUNT_POINT=${MACHINE_MOUNT_POINT} >> .env
 
 CONTAINER_MOUNT_POINT="/usr/src/app"
-echo CONTAINER_MOUNT_POINT=${CONTAINER_MOUNT_POINT} > .env
+echo CONTAINER_MOUNT_POINT=${CONTAINER_MOUNT_POINT} >> .env
 
 echo '---- STARTING SERVICES ----'
 docker-compose -f docker-compose-vanilla-jupyter.yml up -d
